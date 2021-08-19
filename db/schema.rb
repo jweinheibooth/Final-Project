@@ -10,6 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_19_231934) do
+
+  create_table "games", force: :cascade do |t|
+    t.integer "winner_id"
+    t.integer "loser_id"
+    t.integer "winner_points"
+    t.integer "loser_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "player_stats", force: :cascade do |t|
+    t.integer "points"
+    t.integer "three_pointers_made"
+    t.integer "three_point_attempts"
+    t.integer "rebounds"
+    t.string "assists"
+    t.string "turnovers"
+    t.string "steals"
+    t.integer "game_id"
+    t.integer "player_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.integer "team_id"
+    t.string "player_name"
+    t.integer "player_stats_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "team_name"
+    t.integer "year"
+    t.text "description"
+    t.string "image"
+    t.integer "players_count"
+    t.integer "games_count"
+    t.integer "games_lost_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

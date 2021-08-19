@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Player stat #<%= @the_player_stat.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/player_stats">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_player_stat/<%= @the_player_stat.id %>">
+          Delete player stat
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Points
+      </dt>
+      <dd>
+        <%= @the_player_stat.points %>
+      </dd>
+
+      <dt>
+        Three pointers made
+      </dt>
+      <dd>
+        <%= @the_player_stat.three_pointers_made %>
+      </dd>
+
+      <dt>
+        Three point attempts
+      </dt>
+      <dd>
+        <%= @the_player_stat.three_point_attempts %>
+      </dd>
+
+      <dt>
+        Rebounds
+      </dt>
+      <dd>
+        <%= @the_player_stat.rebounds %>
+      </dd>
+
+      <dt>
+        Assists
+      </dt>
+      <dd>
+        <%= @the_player_stat.assists %>
+      </dd>
+
+      <dt>
+        Turnovers
+      </dt>
+      <dd>
+        <%= @the_player_stat.turnovers %>
+      </dd>
+
+      <dt>
+        Steals
+      </dt>
+      <dd>
+        <%= @the_player_stat.steals %>
+      </dd>
+
+      <dt>
+        Game
+      </dt>
+      <dd>
+        <%= @the_player_stat.game_id %>
+      </dd>
+
+      <dt>
+        Player
+      </dt>
+      <dd>
+        <%= @the_player_stat.player_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player_stat.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player_stat.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit player stat
+    </h2>
+
+    <form action="/modify_player_stat/<%= @the_player_stat.id %>"  method="post" >
+      <div>
+        <label for="points_box">
+          Points
+        </label>
+
+        <input type="text" id="points_box" name="query_points" value="<%= @the_player_stat.points %>">
+      </div>
+
+      <div>
+        <label for="three_pointers_made_box">
+          Three pointers made
+        </label>
+
+        <input type="text" id="three_pointers_made_box" name="query_three_pointers_made" value="<%= @the_player_stat.three_pointers_made %>">
+      </div>
+
+      <div>
+        <label for="three_point_attempts_box">
+          Three point attempts
+        </label>
+
+        <input type="text" id="three_point_attempts_box" name="query_three_point_attempts" value="<%= @the_player_stat.three_point_attempts %>">
+      </div>
+
+      <div>
+        <label for="rebounds_box">
+          Rebounds
+        </label>
+
+        <input type="text" id="rebounds_box" name="query_rebounds" value="<%= @the_player_stat.rebounds %>">
+      </div>
+
+      <div>
+        <label for="assists_box">
+          Assists
+        </label>
+
+        <input type="text" id="assists_box" name="query_assists" value="<%= @the_player_stat.assists %>">
+      </div>
+
+      <div>
+        <label for="turnovers_box">
+          Turnovers
+        </label>
+
+        <input type="text" id="turnovers_box" name="query_turnovers" value="<%= @the_player_stat.turnovers %>">
+      </div>
+
+      <div>
+        <label for="steals_box">
+          Steals
+        </label>
+
+        <input type="text" id="steals_box" name="query_steals" value="<%= @the_player_stat.steals %>">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id" value="<%= @the_player_stat.game_id %>">
+      </div>
+
+      <div>
+        <label for="player_id_box">
+          Player
+        </label>
+
+        <input type="text" id="player_id_box" name="query_player_id" value="<%= @the_player_stat.player_id %>">
+      </div>
+
+      <button>
+        Update player stat
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

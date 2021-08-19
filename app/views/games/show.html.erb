@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Game #<%= @the_game.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/games">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_game/<%= @the_game.id %>">
+          Delete game
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Winner
+      </dt>
+      <dd>
+        <%= @the_game.winner_id %>
+      </dd>
+
+      <dt>
+        Loser
+      </dt>
+      <dd>
+        <%= @the_game.loser_id %>
+      </dd>
+
+      <dt>
+        Winner points
+      </dt>
+      <dd>
+        <%= @the_game.winner_points %>
+      </dd>
+
+      <dt>
+        Loser points
+      </dt>
+      <dd>
+        <%= @the_game.loser_points %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit game
+    </h2>
+
+    <form action="/modify_game/<%= @the_game.id %>"  method="post" >
+      <div>
+        <label for="winner_id_box">
+          Winner
+        </label>
+
+        <input type="text" id="winner_id_box" name="query_winner_id" value="<%= @the_game.winner_id %>">
+      </div>
+
+      <div>
+        <label for="loser_id_box">
+          Loser
+        </label>
+
+        <input type="text" id="loser_id_box" name="query_loser_id" value="<%= @the_game.loser_id %>">
+      </div>
+
+      <div>
+        <label for="winner_points_box">
+          Winner points
+        </label>
+
+        <input type="text" id="winner_points_box" name="query_winner_points" value="<%= @the_game.winner_points %>">
+      </div>
+
+      <div>
+        <label for="loser_points_box">
+          Loser points
+        </label>
+
+        <input type="text" id="loser_points_box" name="query_loser_points" value="<%= @the_game.loser_points %>">
+      </div>
+
+      <button>
+        Update game
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

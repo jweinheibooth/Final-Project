@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all players
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new player
+    </h2>
+
+    <form action="/insert_player" method="post">
+      <div>
+        <label for="team_id_box">
+          Team
+        </label>
+
+        <input type="text" id="team_id_box" name="query_team_id">
+      </div>
+
+      <div>
+        <label for="player_name_box">
+          Player name
+        </label>
+
+        <input type="text" id="player_name_box" name="query_player_name">
+      </div>
+
+      <div>
+        <label for="player_stats_count_box">
+          Player stats count
+        </label>
+
+        <input type="text" id="player_stats_count_box" name="query_player_stats_count">
+      </div>
+
+      <button>
+        Create player
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Team
+        </th>
+
+        <th>
+          Player name
+        </th>
+
+        <th>
+          Player stats count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_players.each do |a_player| %>
+      <tr>
+        <td>
+          <%= a_player.id %>
+        </td>
+
+        <td>
+          <%= a_player.team_id %>
+        </td>
+
+        <td>
+          <%= a_player.player_name %>
+        </td>
+
+        <td>
+          <%= a_player.player_stats_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_player.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_player.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/players/<%= a_player.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

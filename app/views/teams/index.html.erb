@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all teams
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new team
+    </h2>
+
+    <form action="/insert_team" method="post">
+      <div>
+        <label for="team_name_box">
+          Team name
+        </label>
+
+        <input type="text" id="team_name_box" name="query_team_name">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
+        <label for="players_count_box">
+          Players count
+        </label>
+
+        <input type="text" id="players_count_box" name="query_players_count">
+      </div>
+
+      <div>
+        <label for="games_count_box">
+          Games count
+        </label>
+
+        <input type="text" id="games_count_box" name="query_games_count">
+      </div>
+
+      <div>
+        <label for="games_lost_count_box">
+          Games lost count
+        </label>
+
+        <input type="text" id="games_lost_count_box" name="query_games_lost_count">
+      </div>
+
+      <button>
+        Create team
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Team name
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Players count
+        </th>
+
+        <th>
+          Games count
+        </th>
+
+        <th>
+          Games lost count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_teams.each do |a_team| %>
+      <tr>
+        <td>
+          <%= a_team.id %>
+        </td>
+
+        <td>
+          <%= a_team.team_name %>
+        </td>
+
+        <td>
+          <%= a_team.year %>
+        </td>
+
+        <td>
+          <%= a_team.description %>
+        </td>
+
+        <td>
+          <%= a_team.image %>
+        </td>
+
+        <td>
+          <%= a_team.players_count %>
+        </td>
+
+        <td>
+          <%= a_team.games_count %>
+        </td>
+
+        <td>
+          <%= a_team.games_lost_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_team.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_team.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/teams/<%= a_team.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

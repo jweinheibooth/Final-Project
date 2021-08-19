@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Player #<%= @the_player.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/players">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_player/<%= @the_player.id %>">
+          Delete player
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Team
+      </dt>
+      <dd>
+        <%= @the_player.team_id %>
+      </dd>
+
+      <dt>
+        Player name
+      </dt>
+      <dd>
+        <%= @the_player.player_name %>
+      </dd>
+
+      <dt>
+        Player stats count
+      </dt>
+      <dd>
+        <%= @the_player.player_stats_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit player
+    </h2>
+
+    <form action="/modify_player/<%= @the_player.id %>"  method="post" >
+      <div>
+        <label for="team_id_box">
+          Team
+        </label>
+
+        <input type="text" id="team_id_box" name="query_team_id" value="<%= @the_player.team_id %>">
+      </div>
+
+      <div>
+        <label for="player_name_box">
+          Player name
+        </label>
+
+        <input type="text" id="player_name_box" name="query_player_name" value="<%= @the_player.player_name %>">
+      </div>
+
+      <div>
+        <label for="player_stats_count_box">
+          Player stats count
+        </label>
+
+        <input type="text" id="player_stats_count_box" name="query_player_stats_count" value="<%= @the_player.player_stats_count %>">
+      </div>
+
+      <button>
+        Update player
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
