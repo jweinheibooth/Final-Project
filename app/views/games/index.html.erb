@@ -9,6 +9,9 @@
 <hr>
 
 <div>
+<% if session.fetch( :user_id) == nil  %>
+ <% #blank %>
+ <% else %>
   <div>
     <h2>
       Add a new game
@@ -52,6 +55,7 @@
       </button>
     </form>
   </div>
+  <% end %>
 </div>
 
 <hr>

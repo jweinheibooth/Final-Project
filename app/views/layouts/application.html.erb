@@ -16,6 +16,50 @@
   </head>
 
   <body>
+  <nav>
+      <ul>
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+         <li>
+            <a href="/user_sign_in">
+              Sign in
+            </a>
+          </li>
+          <li>
+            <a href="/user_sign_up">
+              Sign up
+            </a>
+          </li>
+        <%else%>
+            <li>
+            <a href="/user_sign_out">
+              Sign out
+            </a>
+          </li>
+          <% end %>
+        <li>
+          <a href="/">
+            Teams
+          </a>
+        </li>
+        <li>
+          <a href="/games">
+            Games
+          </a>
+        </li>
+        <li>
+          <a href="/players">
+            Players
+          </a>
+        </li>
+        <li>
+          <a href="/player_stats">
+            Stats
+          </a>
+        </li>
+      
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
