@@ -21,7 +21,7 @@ class PlayersController < ApplicationController
     the_player = Player.new
     the_player.team_id = params.fetch("query_team_id")
     the_player.player_name = params.fetch("query_player_name")
-    the_player.player_stats_count = params.fetch("query_player_stats_count")
+    # the_player.player_stats_count = params.fetch("query_player_stats_count")
 
     if the_player.valid?
       the_player.save
@@ -37,7 +37,7 @@ class PlayersController < ApplicationController
 
     the_player.team_id = params.fetch("query_team_id")
     the_player.player_name = params.fetch("query_player_name")
-    the_player.player_stats_count = params.fetch("query_player_stats_count")
+    # the_player.player_stats_count = params.fetch("query_player_stats_count")
 
     if the_player.valid?
       the_player.save

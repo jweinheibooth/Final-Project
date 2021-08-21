@@ -34,13 +34,13 @@
         <input type="text" id="player_name_box" name="query_player_name">
       </div>
 
-      <div>
+      <%# <div>
         <label for="player_stats_count_box">
           Player stats count
         </label>
 
         <input type="text" id="player_stats_count_box" name="query_player_stats_count">
-      </div>
+      </div> %>
 
       <button>
         Create player
@@ -55,9 +55,9 @@
   <div>
     <table>
       <tr>
-        <th>
+        <%# <th>
           ID
-        </th>
+        </th> %>
 
         <th>
           Team
@@ -67,10 +67,13 @@
           Player name
         </th>
 
-        <th>
+        <%# <th>
           Player stats count
-        </th>
+        </th> %>
 
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
         <th>
           Created at
         </th>
@@ -78,16 +81,16 @@
         <th>
           Updated at
         </th>
-
+      <% end %>
         <th>
         </th>
       </tr>
 
       <% @list_of_players.each do |a_player| %>
       <tr>
-        <td>
+        <%# <td>
           <%= a_player.id %>
-        </td>
+        <%# </td> %>
 
         <td>
           <%= a_player.team_id %>
@@ -97,17 +100,20 @@
           <%= a_player.player_name %>
         </td>
 
-        <td>
+        <%# <td>
           <%= a_player.player_stats_count %>
-        </td>
+        <%# </td> %>
 
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
         <td>
           <%= time_ago_in_words(a_player.created_at) %> ago
         </td>
         <td>
           <%= time_ago_in_words(a_player.updated_at) %> ago
         </td>
-
+        <% end %>
         <td>
           <a href="/players/<%= a_player.id %>">
             Show details

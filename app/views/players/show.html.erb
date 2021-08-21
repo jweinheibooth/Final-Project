@@ -11,12 +11,16 @@
         </a>
       </div>
 
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
       <div>
         <a href="/delete_player/<%= @the_player.id %>">
           Delete player
         </a>
       </div>
     </div>
+    <% end %>
 
     <dl>
       <dt>
@@ -40,6 +44,9 @@
         <%= @the_player.player_stats_count %>
       </dd>
 
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
       <dt>
         Created at
       </dt>
@@ -53,6 +60,7 @@
       <dd>
         <%= time_ago_in_words(@the_player.updated_at) %> ago
       </dd>
+      <% end %>
     </dl>
   </div>
 </div>
@@ -62,6 +70,9 @@
 
 <div>
   <div>
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>  
     <h2>
       Edit player
     </h2>
@@ -95,6 +106,7 @@
         Update player
       </button>
     </form>
+    <% end %>
   </div>
 </div>
 
