@@ -15,28 +15,11 @@
 
   </head>
 
-  <body>
+ <header>
+  <div class="container">
+  
   <nav>
       <ul>
-      <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-         <li>
-            <a href="/user_sign_in">
-              Sign in
-            </a>
-          </li>
-          <li>
-            <a href="/user_sign_up">
-              Sign up
-            </a>
-          </li>
-        <%else%>
-            <li>
-            <a href="/user_sign_out">
-              Sign out
-            </a>
-          </li>
-          <% end %>
         <li>
           <a href="/">
             Teams
@@ -57,9 +40,30 @@
             Stats
           </a>
         </li>
-      
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+         <li>
+            <a href="/user_sign_in">
+              Sign in
+            </a>
+          </li>
+          <li>
+            <a href="/user_sign_up">
+              Sign up
+            </a>
+          </li>
+        <%else%>
+            <li>
+            <a href="/user_sign_out">
+              Sign out
+            </a>
+          </li>
+          <% end %>
       </ul>
     </nav>
+    </header>
+
+   <body>
     <%= yield %>
   </body>
 </html>
