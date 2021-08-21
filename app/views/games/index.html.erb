@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all games
+      Game Results
     </h1>
   </div>
 </div>
@@ -64,7 +64,7 @@
     <table class="content-table">
       <tr>
         <th>
-          ID
+          Game #
         </th>
 
         <th>
@@ -72,17 +72,20 @@
         </th>
 
         <th>
-          Loser
+          Winner points
         </th>
 
         <th>
-          Winner points
+          Loser
         </th>
 
         <th>
           Loser points
         </th>
-
+      
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
         <th>
           Created at
         </th>
@@ -90,7 +93,7 @@
         <th>
           Updated at
         </th>
-
+        <% end %>
         <th>
         </th>
       </tr>
@@ -106,23 +109,27 @@
         </td>
 
         <td>
-          <%= a_game.loser_id %>
+          <%= a_game.winner_points %>
         </td>
 
         <td>
-          <%= a_game.winner_points %>
+          <%= a_game.loser_id %>
         </td>
 
         <td>
           <%= a_game.loser_points %>
         </td>
 
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
         <td>
           <%= time_ago_in_words(a_game.created_at) %> ago
         </td>
         <td>
           <%= time_ago_in_words(a_game.updated_at) %> ago
         </td>
+      <% end %>
 
         <td>
           <a href="/games/<%= a_game.id %>">

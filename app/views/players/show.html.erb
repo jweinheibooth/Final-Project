@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Player #<%= @the_player.id %> details
+      Player: <%= @the_player.player_name %>
     </h1>
 
     <div>
@@ -37,12 +37,12 @@
         <%= @the_player.player_name %>
       </dd>
 
-      <dt>
+      <%# <dt>
         Player stats count
       </dt>
       <dd>
         <%= @the_player.player_stats_count %>
-      </dd>
+      <%# </dd> %>
 
       <% session.fetch(:user_id) %>
       <% if session.fetch( :user_id) == nil  %>
@@ -94,13 +94,13 @@
         <input type="text" id="player_name_box" name="query_player_name" value="<%= @the_player.player_name %>">
       </div>
 
-      <div>
+      <%# <div>
         <label for="player_stats_count_box">
           Player stats count
         </label>
 
         <input type="text" id="player_stats_count_box" name="query_player_stats_count" value="<%= @the_player.player_stats_count %>">
-      </div>
+      <%# </div> %>
 
       <button>
         Update player
@@ -109,5 +109,7 @@
     <% end %>
   </div>
 </div>
+
+
 
 <hr>

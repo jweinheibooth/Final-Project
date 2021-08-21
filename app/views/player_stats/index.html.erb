@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all player stats
+      Player Statistics
     </h1>
   </div>
 </div>
@@ -103,8 +103,16 @@
   <div>
     <table class="content-table">
       <tr>
-        <th>
+        <%# <th>
           ID
+        </th> %>
+
+        <th>
+          Player
+        </th>
+
+        <th>
+          Game #
         </th>
 
         <th>
@@ -135,14 +143,13 @@
           Steals
         </th>
 
-        <th>
-          Game
-        </th>
 
-        <th>
-          Player
-        </th>
 
+
+
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>  
         <th>
           Created at
         </th>
@@ -150,15 +157,23 @@
         <th>
           Updated at
         </th>
-
+        <% end %>
         <th>
         </th>
       </tr>
 
       <% @list_of_player_stats.each do |a_player_stat| %>
       <tr>
-        <td>
+        <%# <td>
           <%= a_player_stat.id %>
+        <%# </td> %>
+
+        <td>
+          <%= a_player_stat.player_id %>
+        </td>
+
+        <td>
+          <%= a_player_stat.game_id %>
         </td>
 
         <td>
@@ -189,21 +204,16 @@
           <%= a_player_stat.steals %>
         </td>
 
-        <td>
-          <%= a_player_stat.game_id %>
-        </td>
-
-        <td>
-          <%= a_player_stat.player_id %>
-        </td>
-
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>  
         <td>
           <%= time_ago_in_words(a_player_stat.created_at) %> ago
         </td>
         <td>
           <%= time_ago_in_words(a_player_stat.updated_at) %> ago
         </td>
-
+      <% end %>
         <td>
           <a href="/player_stats/<%= a_player_stat.id %>">
             Show details
