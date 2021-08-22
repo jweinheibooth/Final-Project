@@ -107,15 +107,15 @@
           ID
         </th> %>
 
-        <th><%= link_to "Player", :sort => "player_id" %></th>
-        <th><%= link_to "Game #", :sort => "game_id" %></th>
-        <th><%= link_to "Points", :sort => "points" %></th>
-        <th><%= link_to "Three Pointers Made", :sort => "three_pointers_made" %></th>
-        <th><%= link_to "Three Point Attempts", :sort => "three_point_attempts" %></th>
-        <th><%= link_to "Rebounds", :sort => "rebounds" %></th>
-        <th><%= link_to "Assists", :sort => "assists" %></th>
-        <th><%= link_to "Turnovers", :sort => "turnovers" %></th>
-        <th><%= link_to "Steals", :sort => "steals" %></th>
+        <th><%= sortable "player_id", "Player" %></th>
+        <th><%= sortable "game_id", "Game #" %></th>
+        <th><%= sortable "points", "Points" %></th>
+        <th><%= sortable "three_pointers_made", "Three Pointers Made" %></th>
+        <th><%= sortable "three_point_attempts", "Three Point Attempts" %></th>
+        <th><%= sortable "rebounds", "Rebounds" %></th>
+        <th><%= sortable "assists", "Assists" %></th>
+        <th><%= sortable "turnovers", "Turnovers" %></th>
+        <th><%= sortable "steals", "Steals" %></th>
 
       <% session.fetch(:user_id) %>
       <% if session.fetch( :user_id) == nil  %>

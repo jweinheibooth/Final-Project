@@ -1,8 +1,13 @@
 class PlayerStatsController < ApplicationController
+  
+  helper_method :sort_column, :sort_direction
+  
   def index
-    matching_player_stats = PlayerStat.order(params[:sort])
+    matching_player_stats = PlayerStat.all
 
-    @list_of_player_stats = matching_player_stats.order({ :created_at => :desc })
+    @list_of_player_stats = matching_player_stats.order(sort_column + " " + sort_direction)
+
+    # @list_of_player_stats = matching_player_stats.order({ :created_at => :desc })
 
     render({ :template => "player_stats/index.html.erb" })
   end
@@ -67,4 +72,15 @@ class PlayerStatsController < ApplicationController
 
     redirect_to("/player_stats", { :notice => "Player stat deleted successfully."} )
   end
+  
+  private
+
+  def sort_column
+    PlayerStat.column_names.include?(params[:sort]) ? params[:sort] : "points"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+
 end
