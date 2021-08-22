@@ -22,88 +22,84 @@
       <% end %>
     </div>
 
-    <dl>
-      <dt>
-        Points
-      </dt>
-      <dd>
-        <%= @the_player_stat.points %>
-      </dd>
+<hr>
+<div>
+  <div>
+    <table class="content-table">
+    <tr>
+      <th>Player</th>
+      <th>Game</th>
+      <th>Points</th>
+      <th>Three pointers made</th>
+      <th>Three point attempts</th>
+      <th>Rebounds</th>
+      <th>Assists</th>    
+      <th>Turnovers</th>
+      <th>Steals</th>  
 
-      <dt>
-        Three pointers made
-      </dt>
-      <dd>
-        <%= @the_player_stat.three_pointers_made %>
-      </dd>
 
-      <dt>
-        Three point attempts
-      </dt>
-      <dd>
-        <%= @the_player_stat.three_point_attempts %>
-      </dd>
-
-      <dt>
-        Rebounds
-      </dt>
-      <dd>
-        <%= @the_player_stat.rebounds %>
-      </dd>
-
-      <dt>
-        Assists
-      </dt>
-      <dd>
-        <%= @the_player_stat.assists %>
-      </dd>
-
-      <dt>
-        Turnovers
-      </dt>
-      <dd>
-        <%= @the_player_stat.turnovers %>
-      </dd>
-
-      <dt>
-        Steals
-      </dt>
-      <dd>
-        <%= @the_player_stat.steals %>
-      </dd>
-
-      <dt>
-        Game
-      </dt>
-      <dd>
-        <%= @the_player_stat.game_id %>
-      </dd>
-
-      <dt>
-        Player
-      </dt>
-      <dd>
-        <%= @the_player_stat.player_id %>
-      </dd>
 
       <% session.fetch(:user_id) %>
       <% if session.fetch( :user_id) == nil  %>
       <%else%>  
-      <dt>
+      <th>
         Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_player_stat.created_at) %> ago
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_player_stat.updated_at) %> ago
-      </dd>
+      </th>
       <% end %>
-    </dl>
+      </tr>
+
+      <tr>
+      <td>
+        <%= @the_player_stat.player_id %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.game_id %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.points %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.three_pointers_made %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.three_point_attempts %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.rebounds %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.assists %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.turnovers %>
+      </td>
+
+      <td>
+        <%= @the_player_stat.steals %>
+      </td>
+
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>        
+      <td>
+        <%= time_ago_in_words(@the_player_stat.created_at) %> ago
+      </td>
+      <td>
+        <%= time_ago_in_words(@the_player_stat.updated_at) %> ago
+      </td>
+      <% end %>   
+    </tr>
+    </table>
   </div>
 </div>
 

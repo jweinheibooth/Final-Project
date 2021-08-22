@@ -1,6 +1,6 @@
 class PlayerStatsController < ApplicationController
   def index
-    matching_player_stats = PlayerStat.all
+    matching_player_stats = PlayerStat.order(params[:sort])
 
     @list_of_player_stats = matching_player_stats.order({ :created_at => :desc })
 

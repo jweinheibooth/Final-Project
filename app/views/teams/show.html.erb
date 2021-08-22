@@ -22,74 +22,92 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
+<hr>
+<div>
+  <div>
+    <table class="content-table">
+      <th>
         Team name
-      </dt>
-      <dd>
-        <%= @the_team.team_name %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Year
-      </dt>
-      <dd>
-        <%= @the_team.year %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Description
-      </dt>
-      <dd>
-        <%= @the_team.description %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Image
-      </dt>
-      <dd>
-        <%= @the_team.image %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Roster Size
-      </dt>
-      <dd>
-        <%= @the_team.players_count %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Games Won
-      </dt>
-      <dd>
-        <%= @the_team.games_count %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Games Lost
-      </dt>
-      <dd>
+      </th>
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
+      <th>
+        Created at
+      </th>
+      <th>
+        Updated at
+      </th>
+      <% end %>
+      </tr>
+
+
+
+      <tr>
+      <td>
+        <%= @the_team.team_name %>
+      </td>
+
+
+      <td>
+        <%= @the_team.year %>
+      </td>
+
+
+      <td>
+        <%= @the_team.description %>
+      </td>
+
+
+      <td>
+        <%= @the_team.image %>
+      </td>
+
+
+      <td>
+        <%= @the_team.players_count %>
+      </td>
+
+
+      <td>
+        <%= @the_team.games_count %>
+      </td>
+
+
+      <td>
         <%= @the_team.games_lost_count %>
-      </dd>
+      </td>
 
       <% session.fetch(:user_id) %>
       <% if session.fetch( :user_id) == nil  %>
       <%else%>
-      <dt>
-        Created at
-      </dt>
-      <dd>
+      <td>
         <%= time_ago_in_words(@the_team.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </td>
+      <td>
         <%= time_ago_in_words(@the_team.updated_at) %> ago
-      </dd>
+      </td>
       <% end %>
-    </dl>
+    </tr>
+    </table>
   </div>
 </div>
 

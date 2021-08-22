@@ -22,46 +22,57 @@
     </div>
     <% end %>
 
-    <dl>
-      <dt>
-        Team
-      </dt>
-      <dd>
-        <%= @the_player.team_id %>
-      </dd>
-
-      <dt>
+<hr>
+<div>
+  <div>
+    <table class="content-table">
+    <tr>
+      <th>
         Player name
-      </dt>
-      <dd>
-        <%= @the_player.player_name %>
-      </dd>
+      </th>
+      <th>
+        Team
+      </th>
+      <th>
+        Games Played
+      </th>
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
+      <th>
+        Created at
+      </th>
+      <th>
+        Updated at
+      </th>
+      <% end %>
+      </tr>
 
-      <%# <dt>
-        Player stats count
-      </dt>
-      <dd>
+      <tr>
+      <td>
+        <%= @the_player.player_name %>
+      </td>
+
+      <td>
+        <%= @the_player.team_id %>
+      </td>
+
+      <td>
         <%= @the_player.player_stats_count %>
-      <%# </dd> %>
+      </td>
 
       <% session.fetch(:user_id) %>
       <% if session.fetch( :user_id) == nil  %>
       <%else%>
-      <dt>
-        Created at
-      </dt>
-      <dd>
+      <td>
         <%= time_ago_in_words(@the_player.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </td>
+      <td>
         <%= time_ago_in_words(@the_player.updated_at) %> ago
-      </dd>
+      </td>
       <% end %>
-    </dl>
+    </tr>
+    </table>
   </div>
 </div>
 
