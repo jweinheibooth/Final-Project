@@ -18,49 +18,58 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
+
+<hr>
+<div>
+  <div>
+    <table class="content-table">
+      <tr>
+        <th>
         Winner
-      </dt>
-      <dd>
-        <%= @the_game.winner_id %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Loser
-      </dt>
-      <dd>
-        <%= @the_game.loser_id %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Winner points
-      </dt>
-      <dd>
-        <%= @the_game.winner_points %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Loser points
-      </dt>
-      <dd>
-        <%= @the_game.loser_points %>
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_game.created_at) %> ago
-      </dd>
-
-      <dt>
+      </th>
+      <th>
         Updated at
-      </dt>
-      <dd>
+      </th>
+      </tr>
+
+      <tr>
+      <td>
+        <%= @the_game.winner_id %>
+      </td>
+
+      <td>
+        <%= @the_game.loser_id %>
+      </td>
+
+      <td>
+        <%= @the_game.winner_points %>
+      </td>
+
+      <td>
+        <%= @the_game.loser_points %>
+      </td>
+
+      <td>
+        <%= time_ago_in_words(@the_game.created_at) %> ago
+      </td>
+
+      <td>
         <%= time_ago_in_words(@the_game.updated_at) %> ago
-      </dd>
-    </dl>
+      </td>
+    </tr>
+    </table>
   </div>
 </div>
 
