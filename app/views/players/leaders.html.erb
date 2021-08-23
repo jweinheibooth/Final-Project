@@ -1,0 +1,76 @@
+<hr>
+<div>
+  <div>
+    <table class="content-table">
+      <tr>
+        <%# <th>
+          ID
+        </th> %>
+
+        <th>
+          Team
+        </th>
+
+        <th>
+          Player name
+        </th>
+
+        <%# <th>
+          Player stats count
+        </th> %>
+
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+      <% end %>
+        <th>
+        </th>
+      </tr>
+
+      <% @points_leaders.each do |a_player| %>
+      <tr>
+        <%# <td>
+          <%= a_player.id %>
+        <%# </td> %>
+
+        <td>
+          <%= a_player.team.team_name %>
+        </td>
+
+        <td>
+          <%= a_player.player_name %>
+        </td>
+
+        <%# <td>
+          <%= a_player.player_stats_count %>
+        <%# </td> %>
+
+      <% session.fetch(:user_id) %>
+      <% if session.fetch( :user_id) == nil  %>
+      <%else%>
+        <td>
+          <%= time_ago_in_words(a_player.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_player.updated_at) %> ago
+        </td>
+        <% end %>
+        <td>
+          <a href="/players/<%= a_player.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

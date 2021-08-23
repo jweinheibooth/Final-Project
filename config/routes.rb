@@ -77,6 +77,8 @@ Rails.application.routes.draw do
   
   get("/players/:path_id", { :controller => "players", :action => "show" })
   
+  get("/leaders", { :controller => "players", :action => "points_leaders" })
+
   # UPDATE
   
   post("/modify_player/:path_id", { :controller => "players", :action => "update" })
