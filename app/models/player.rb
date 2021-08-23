@@ -29,4 +29,28 @@ class Player < ApplicationRecord
     return points.to_f
   end
 
+  def rpg
+    rebound_array = self.player_stats.pluck(:rebounds)
+    game_count = rebound_array.count
+    total_rebounds = rebound_array.sum
+    rebounds = total_rebounds / game_count
+    return rebounds.to_f
+  end
+
+  def spg
+    steals_array = self.player_stats.pluck(:steals)
+    game_count = steals_array.count
+    total_steals = steals_array.sum
+    steals = total_steals / game_count
+    return steals.to_f
+  end
+
+  # def apg
+  #   assists_array = self.player_stats.pluck(:assists)
+  #   game_count = assists_array.count
+  #   total_assists = assists_array.sum
+  #   assists = total_assists / game_count
+  #   return assists.to_f
+  # end
+
 end

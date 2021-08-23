@@ -39,6 +39,15 @@
       <th>
         PPG
       </th>
+      <th>
+        RPG
+      </th>
+      <th>
+        APG
+      </th>
+      <th>
+        SPG
+      </th>
       <% if @current_user == nil  %>
       <%else%>
       <th>
@@ -65,6 +74,18 @@
 
       <td>
         <%= @the_player.ppg %>
+      </td>
+
+      <td>
+        <%# <%= @the_player.rpg %> %>
+      </td>
+
+      <td>
+        <%# <%= @the_player.apg %> %>
+      </td>
+
+      <td>
+        <%# <%= @the_player.spg %> %>
       </td>
 
       <% session.fetch(:user_id) %>
