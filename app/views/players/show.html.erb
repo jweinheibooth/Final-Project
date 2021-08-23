@@ -54,7 +54,7 @@
       </td>
 
       <td>
-        <%= @the_player.team_id %>
+        <%= @the_player.team.team_name %>
       </td>
 
       <td>
@@ -110,7 +110,7 @@
           Player stats count
         </label>
 
-        <input type="text" id="player_stats_count_box" name="query_player_stats_count" value="<%= @the_player.player_stats_count %>">
+        <input type="text" id="player_stats_count_box" name="query_player_stats_count" value="<%= @the_player.player_stats_count %>
       <%# </div> %>
 
       <button>

@@ -7,6 +7,14 @@ class PlayersController < ApplicationController
     render({ :template => "players/index.html.erb" })
   end
 
+  # def points_leaders
+  #   matching_players = Player.all
+
+  #   @points_leaders = matching_players.order({ :points => :desc }).limit(10)
+
+  #   render({ :template => "players/leaders.html.erb" })
+  # end
+
   def show
     the_id = params.fetch("path_id")
 

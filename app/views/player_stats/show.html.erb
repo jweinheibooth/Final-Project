@@ -1,8 +1,15 @@
 <div>
   <div>
+    <%# <h1>
+      Player stat #<%= @the_player_stat.id %>
+    <%# </h1> %>
+
     <h1>
-      Player stat #<%= @the_player_stat.id %> details
-    </h1>
+      <%= @the_player_stat.player.player_name %>'s Stat Line
+    <h1>
+    <h2>
+      Game # <%= @the_player_stat.game_id %>
+    </h2>
 
     <div>
       <div>
@@ -53,7 +60,7 @@
 
       <tr>
       <td>
-        <%= @the_player_stat.player_id %>
+        <%= @the_player_stat.player.player_name %>
       </td>
 
       <td>
