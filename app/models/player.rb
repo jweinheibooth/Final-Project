@@ -47,12 +47,12 @@ class Player < ApplicationRecord
 
 
 
-  # def apg
-  #   assists_array = self.player_stats.pluck(:assists)
-  #   game_count = assists_array.count
-  #   total_assists = assists_array.sum
-  #   assists = total_assists / game_count
-  #   return assists.to_f
-  # end
+  def apg
+    assists_array = self.player_stats.pluck(:assists)
+    game_count = assists_array.count
+    total_assists = assists_array.sum
+    assists = total_assists / game_count
+    return assists.to_f
+  end
 
 end

@@ -12,7 +12,11 @@ class TeamsController < ApplicationController
 
     matching_teams = Team.where({ :id => the_id })
 
+    roster = Player.where({ :team_id => the_id})
+
     @the_team = matching_teams.at(0)
+
+    @the_roster = roster
 
     render({ :template => "teams/show.html.erb" })
   end
@@ -63,4 +67,9 @@ class TeamsController < ApplicationController
 
     redirect_to("/teams", { :notice => "Team deleted successfully."} )
   end
+
+  def roster
+
+  end
+
 end

@@ -87,6 +87,9 @@
 
 <hr>
 
+<% session.fetch(:user_id) %>
+<% if session.fetch( :user_id) == nil  %>
+<%else%> 
 
 <div>
   <div>
@@ -133,5 +136,6 @@
     </form>
   </div>
 </div>
+<% end %>
 
 <hr>
