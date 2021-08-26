@@ -108,7 +108,7 @@
         </th> %>
 
         <th><%= sortable "player_id", "Player" %></th>
-        <th><%= sortable "game_id", "Game #" %></th>
+        <th><%= sortable "game_id", "Opponent" %></th>
         <th><%= sortable "points", "Points" %></th>
         <th><%= sortable "three_pointers_made", "Three Pointers Made" %></th>
         <th><%= sortable "three_point_attempts", "Three Point Attempts" %></th>
@@ -143,7 +143,7 @@
         </td>
 
         <td>
-          <%= a_player_stat.game_id %>
+          <%= a_player_stat.opponent %>
         </td>
 
         <td>

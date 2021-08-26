@@ -45,6 +45,8 @@ class Player < ApplicationRecord
     return steals.to_f
   end
 
+
+
   # def apg
   #   assists_array = self.player_stats.pluck(:assists)
   #   game_count = assists_array.count

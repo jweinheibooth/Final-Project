@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_232908) do
+ActiveRecord::Schema.define(version: 2021_08_26_192623) do
 
   create_table "games", force: :cascade do |t|
     t.integer "winner_id"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2021_08_19_232908) do
     t.integer "three_pointers_made"
     t.integer "three_point_attempts"
     t.integer "rebounds"
-    t.string "assists"
-    t.string "turnovers"
-    t.string "steals"
+    t.integer "assists"
+    t.integer "turnovers"
+    t.integer "steals"
     t.integer "game_id"
     t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false

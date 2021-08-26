@@ -3,13 +3,13 @@
 # Table name: player_stats
 #
 #  id                   :integer          not null, primary key
-#  assists              :string
+#  assists              :integer
 #  points               :integer
 #  rebounds             :integer
-#  steals               :string
+#  steals               :integer
 #  three_point_attempts :integer
 #  three_pointers_made  :integer
-#  turnovers            :string
+#  turnovers            :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  game_id              :integer
@@ -26,6 +26,15 @@ class PlayerStat < ApplicationRecord
     game_count = point_array.count
     total_points = point_array.sum
     return total_points / game_count
+  end
+
+  def opponent
+    team = self.player.team
+    if team == self.game.winner
+    return self.game.loser.team_name
+    else 
+      return self.game.winner.team_name
+    end
   end
   
 end
