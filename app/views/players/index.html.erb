@@ -20,8 +20,15 @@
         <label for="team_id_box">
           Team
         </label>
-
-        <input type="text" id="team_id_box" name="query_team_id">
+<%# 
+        <input type="text" id="team_id_box" name="query_team_id"> %>
+        <select type="text" id="team_id_box" name="query_team_id">
+        <% Team.all.each do |team|%>
+        <option value="<%= team.id%>"><%=team.team_name%></option>
+        <%end%>
+        </select>
+      </div>
+      
       </div>
 
       <div>

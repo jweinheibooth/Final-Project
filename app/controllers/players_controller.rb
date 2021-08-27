@@ -43,6 +43,7 @@ class PlayersController < ApplicationController
     the_id = params.fetch("path_id")
     the_player = Player.where({ :id => the_id }).at(0)
 
+    # the_player.team_id = params.fetch("query_team_id")
     the_player.team_id = params.fetch("query_team_id")
     the_player.player_name = params.fetch("query_player_name")
     # the_player.player_stats_count = params.fetch("query_player_stats_count")
