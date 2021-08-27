@@ -9,9 +9,7 @@
 <hr>
 
 <div>
-<% if session.fetch( :user_id) == nil  %>
- <% #blank %>
- <% else %>
+<% if session.fetch( :user_id) == 1  %>
   <div>
     <h2>
       Add a new player stat
@@ -95,6 +93,7 @@
       </button>
     </form>
   </div>
+  <% else %>
   <% end %>
 </div>
 
@@ -120,8 +119,7 @@
         <th><%= sortable "steals", "Steals" %></th>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
+      <% if session.fetch( :user_id) == 1  %>
         <th>
           Created at
         </th>
@@ -129,6 +127,7 @@
         <th>
           Updated at
         </th>
+        <%else%>
         <% end %>
         <th>
         </th>
@@ -177,14 +176,14 @@
         </td>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
+      <% if session.fetch( :user_id) == 1  %>  
         <td>
           <%= time_ago_in_words(a_player_stat.created_at) %> ago
         </td>
         <td>
           <%= time_ago_in_words(a_player_stat.updated_at) %> ago
         </td>
+        <%else%>
       <% end %>
         <td>
           <a href="/player_stats/<%= a_player_stat.id %>">

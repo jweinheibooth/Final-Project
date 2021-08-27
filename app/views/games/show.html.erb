@@ -13,12 +13,12 @@
 
       <div>
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
-        <a href="/delete_game/<%= @the_game.id %>">
+      <% if session.fetch( :user_id) == 1  %>
+          <a href="/delete_game/<%= @the_game.id %>">
           Delete game
         </a>
       </div>
+      <%else%>  
       <% end %>
     </div>
 
@@ -41,14 +41,14 @@
         Loser points
       </th>
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
+      <% if session.fetch( :user_id) == 1  %> 
       <th>
         Created at
       </th>
       <th>
         Updated at
       </th>
+      <%else%> 
       <% end %>
       </tr>
 
@@ -70,8 +70,7 @@
       </td>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
+      <% if session.fetch( :user_id) == 1  %>  
       <td>
         <%= time_ago_in_words(@the_game.created_at) %> ago
       </td>
@@ -79,6 +78,7 @@
       <td>
         <%= time_ago_in_words(@the_game.updated_at) %> ago
       </td>
+      <%else%>
       <% end %>
     </tr>
     </table>
@@ -88,8 +88,8 @@
 
 
 <% session.fetch(:user_id) %>
-<% if session.fetch( :user_id) == nil  %>
-<%else%> 
+<% if session.fetch( :user_id) == 1  %>
+ 
 
 <div>
   <div>
@@ -136,4 +136,5 @@
     </form>
   </div>
 </div>
+<%else%>
 <% end %>

@@ -12,14 +12,14 @@
       </div>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
       <div>
         <a href="/delete_player/<%= @the_player.id %>">
           Delete player
         </a>
       </div>
     </div>
+    <%else%>
     <% end %>
 
 <hr>
@@ -48,14 +48,14 @@
       <th>
         SPG
       </th>
-      <% if @current_user == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
       <th>
         Created at
       </th>
       <th>
         Updated at
       </th>
+      <%else%>
       <% end %>
       </tr>
 
@@ -89,14 +89,14 @@
       </td>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
       <td>
         <%= time_ago_in_words(@the_player.created_at) %> ago
       </td>
       <td>
         <%= time_ago_in_words(@the_player.updated_at) %> ago
       </td>
+      <%else%>
       <% end %>
     </tr>
     </table>
@@ -109,8 +109,7 @@
 <div>
   <div>
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>  
+      <% if session.fetch( :user_id) == 1  %>
     <h2>
       Edit player
     </h2>
@@ -144,6 +143,7 @@
         Update player
       </button>
     </form>
+    <%else%>  
     <% end %>
   </div>
 </div>

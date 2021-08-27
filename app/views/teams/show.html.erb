@@ -13,11 +13,11 @@
 
       <div>
        <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
         <a href="/delete_team/<%= @the_team.id %>">
           Delete team
         </a>
+        <%else%>
          <% end %>
       </div>
     </div>
@@ -48,14 +48,14 @@
         Games Lost
       </th>
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
       <th>
         Created at
       </th>
       <th>
         Updated at
       </th>
+      <%else%>
       <% end %>
       </tr>
 
@@ -97,14 +97,15 @@
       </td>
 
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
+      
       <td>
         <%= time_ago_in_words(@the_team.created_at) %> ago
       </td>
       <td>
         <%= time_ago_in_words(@the_team.updated_at) %> ago
       </td>
+      <%else%>
       <% end %>
     </tr>
     </table>
@@ -164,8 +165,7 @@
 <div>
   <div>
       <% session.fetch(:user_id) %>
-      <% if session.fetch( :user_id) == nil  %>
-      <%else%>
+      <% if session.fetch( :user_id) == 1  %>
     <h2>
       Edit team
     </h2>
@@ -203,33 +203,34 @@
         <input type="text" id="image_box" name="query_image" value="<%= @the_team.image %>">
       </div>
 
-      <div>
+      <%# <div>
         <label for="players_count_box">
           Players count
         </label>
 
-        <input type="text" id="players_count_box" name="query_players_count" value="<%= @the_team.players_count %>">
-      </div>
+        <input type="text" id="players_count_box" name="query_players_count" value="<%= @the_team.players_count %>
+      <%# </div> %>
 
-      <div>
+      <%# <div>
         <label for="games_count_box">
           Games count
         </label>
 
-        <input type="text" id="games_count_box" name="query_games_count" value="<%= @the_team.games_count %>">
-      </div>
+        <input type="text" id="games_count_box" name="query_games_count" value="<%= @the_team.games_count %>
+      <%# </div> %>
 
-      <div>
+      <%# <div>
         <label for="games_lost_count_box">
           Games lost count
-        </label>
+        </label> %>
 
-        <input type="text" id="games_lost_count_box" name="query_games_lost_count" value="<%= @the_team.games_lost_count %>">
-      </div>
+        <%# <input type="text" id="games_lost_count_box" name="query_games_lost_count" value="<%= @the_team.games_lost_count %>
+      <%# </div> %>
 
       <button>
         Update team
       </button>
+      <%else%>
       <% end %>
     </form>
   </div>
