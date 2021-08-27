@@ -59,4 +59,6 @@ class GamesController < ApplicationController
 
     redirect_to("/games", { :notice => "Game deleted successfully."} )
   end
+
+
 end
