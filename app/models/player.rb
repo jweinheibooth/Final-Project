@@ -25,24 +25,33 @@ class Player < ApplicationRecord
     point_array = self.player_stats.pluck(:points)
     game_count = point_array.count
     total_points = point_array.sum
+    if game_count > 0
     points = total_points / game_count
     return points.to_f
+    else 0
+    end
   end
 
   def rpg
     rebound_array = self.player_stats.pluck(:rebounds)
     game_count = rebound_array.count
     total_rebounds = rebound_array.sum
+    if game_count > 0
     rebounds = total_rebounds / game_count
     return rebounds.to_f
+    else 0
+    end
   end
 
   def spg
     steals_array = self.player_stats.pluck(:steals)
     game_count = steals_array.count
     total_steals = steals_array.sum
+    if game_count > 0
     steals = total_steals / game_count
     return steals.to_f
+    else 0
+    end
   end
 
 
@@ -51,8 +60,11 @@ class Player < ApplicationRecord
     assists_array = self.player_stats.pluck(:assists)
     game_count = assists_array.count
     total_assists = assists_array.sum
+    if game_count > 0
     assists = total_assists / game_count
     return assists.to_f
+    else 0
+    end
   end
 
 end

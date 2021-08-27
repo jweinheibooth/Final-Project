@@ -21,12 +21,15 @@ class PlayerStat < ApplicationRecord
 
   belongs_to(:game, { :required => true, :class_name => "Game", :foreign_key => "game_id" })
   
-  def ppg
-    point_array = self.pluck(:points)
-    game_count = point_array.count
-    total_points = point_array.sum
-    return total_points / game_count
-  end
+  # def ppg
+  #   point_array = self.pluck(:points)
+  #   game_count = point_array.count
+  #   total_points = point_array.sum
+  #   if game_count > 0
+  #   return total_points / game_count
+  #   else 0
+  #   end
+  # end
 
   def opponent
     team = self.player.team
