@@ -13,6 +13,8 @@ class GamesController < ApplicationController
     matching_games = Game.where({ :id => the_id })
 
     @the_game = matching_games.at(0)
+    
+    # @game_stats = PlayerStat.where({ :game_id => the_id })
 
     render({ :template => "games/show.html.erb" })
   end

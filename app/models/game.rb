@@ -18,4 +18,5 @@ class Game < ApplicationRecord
 
   has_many(:player_stats, { :class_name => "PlayerStat", :foreign_key => "game_id", :dependent => :destroy })
 
+  has_many(:players, { :through => :player_stats, :source => :player })
 end

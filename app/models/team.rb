@@ -23,4 +23,5 @@ class Team < ApplicationRecord
 
   has_many(:games_lost, { :class_name => "Game", :foreign_key => "loser_id", :dependent => :destroy })
 
+  has_many(:player_stats, { :through => :players, :source => :player_stats })
 end
