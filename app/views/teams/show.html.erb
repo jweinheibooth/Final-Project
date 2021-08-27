@@ -115,16 +115,50 @@
 
 <hr>
 <div>
+<h2>Roster</h2>
   <div>
     <table class="content-table">
       <th>
         Player name
       </th>
+      <th>
+        PPG
+      </th>
+      <th>
+        RPG
+      </th>
+      <th>
+        APG
+      </th>
+      <th>
+        SPG
+      </th>
       
+
+      <% @the_roster.each do |a_member| %>
       <tr>
       <td>
-        <%= @the_roster %>
+        <%= a_member.player_name %>
       </td>
+      <td>
+        <%= a_member.ppg %>
+      </td>
+      <td>
+        <%= a_member.rpg %>
+      </td>
+      <td>
+        <%= a_member.apg %>
+      </td>
+      <td>
+        <%= a_member.spg %>
+      </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
 
 
 <div>
